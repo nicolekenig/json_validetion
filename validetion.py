@@ -46,15 +46,6 @@ def assert_person_is_in_family(person_name, person_surname, person_family_member
             assert person_name in families[family_id][person_family_member]
 
 
-def assert_family_member_is_in_person(family_surname, name, member_type, people):
-    is_in_people = False
-    for person in people:
-        if person['name'] is name and person['surname'] is family_surname and person['family_member'] is member_type:
-            is_in_people = True
-
-    assert is_in_people is True
-
-
 def assert_person_appears_once(people_dict):
     # check that the same person (by surename and name) isn't write twice in people in a different id
     for person_id_1 in people_dict:
@@ -78,3 +69,19 @@ def assert_kid_num_is_zero(kids_num):
 
 def assert_have_no_kids(kids):
     assert kids is None
+
+
+def assert_family_parent_in_people(surname, name, people):
+    is_exists = False
+    for id in people:
+        if people[id]["surname"] is surname and people[id]["name"] is name and people[id]["family_member"] is "parent":
+            is_exists = True
+    assert is_exists is True
+
+
+def assert_family_kid_in_people(surname, name, people):
+    is_exists = False
+    for id in people:
+        if people[id]["surname"] is surname and people[id]["name"] is name and people[id]["family_member"] is "kid":
+            is_exists = True
+    assert is_exists is True

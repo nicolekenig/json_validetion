@@ -46,7 +46,6 @@ def test_valid_person_family_member():
         v.assert_family_member_type(family_member)
         v.assert_person_is_in_family(person_name=name, person_surname=surname, person_family_member=family_member,
                                      families=families_dict)
-        # v.assert_family_member_is_in_person(family_surname=surname,name=name,member_type=family_member,people=people_dict)
 
 
 def test_person_appears_once():
@@ -78,7 +77,16 @@ def test_valid_family_has_kids():
             v.assert_have_no_kids(families_dict[id]["kids"])
 
 
-
+def test_family_member_exists_in_person():
+    for id in families_dict:
+        surname = families_dict[id]["surname"]
+        parents = families_dict[id]["parents"]
+        kids = families_dict[id]["kids"]
+        for parent in parents:
+            v.assert_family_parent_in_people(surname=surname, name=parent, people=people_dict)
+        if kids is not None:
+            for kid in kids:
+                v.assert_family_kid_in_people(surname=surname, name=kid, people=people_dict)
 
 # try:
 #     # Opening JSON file
