@@ -74,7 +74,7 @@ def assert_have_no_kids(kids):
 def assert_family_parent_in_people(surname, name, people):
     is_exists = False
     for id in people:
-        if people[id]["surname"] is surname and people[id]["name"] is name and people[id]["family_member"] is "parent":
+        if people[id]['surname'] == surname and people[id]["name"] == name and people[id]["family_member"] == "parent":
             is_exists = True
     assert is_exists is True
 
@@ -82,6 +82,6 @@ def assert_family_parent_in_people(surname, name, people):
 def assert_family_kid_in_people(surname, name, people):
     is_exists = False
     for id in people:
-        if people[id]["surname"] is surname and people[id]["name"] is name and people[id]["family_member"] is "kid":
+        if people[id]["surname"] == surname and people[id]["name"] == name and people[id]["family_member"] == "kid":
             is_exists = True
     assert is_exists is True
