@@ -1,10 +1,7 @@
 import pytest as pytest
 from jsonschema import validate
 import json
-from validation_schema import Schema
-import jmespath
 import validetion as v
-import pytest
 
 
 def read_json(json_data):
@@ -47,7 +44,8 @@ def test_valid_person_family_member():
         name = people_dict[id]['name']
         family_member = people_dict[id]['family_member']
         v.assert_family_member_type(family_member)
-        v.assert_person_is_in_family(person_name=name,person_surname=surname,person_family_member=family_member, families=families_dict)
+        v.assert_person_is_in_family(person_name=name, person_surname=surname, person_family_member=family_member,
+                                     families=families_dict)
         # v.assert_family_member_is_in_person(family_surname=surname,name=name,member_type=family_member,people=people_dict)
 
 
@@ -64,7 +62,8 @@ def test_valid_family_id():
 def test_valid_family_surname():
     for id in families_dict:
         v.assert_string(id)
-        v.assert_unique_surname(family_id=id, family_surname=families_dict[id]['surname'],family_dict=families_dict)
+        v.assert_unique_surname(family_id=id, family_surname=families_dict[id]['surname'], family_dict=families_dict)
+
 
 def test_valid_family_has_kids():
     for id in families_dict:
@@ -81,9 +80,7 @@ def test_valid_family_has_kids():
 
 
 
-
-
-#try:
+# try:
 #     # Opening JSON file
 #     file = open(json_data)
 #     # returns JSON object as a dictionary
