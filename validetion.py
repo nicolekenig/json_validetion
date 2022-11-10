@@ -87,3 +87,4 @@ def assert_family_kid_in_people(surname, name, people):
         if people[id]["surname"] == surname and people[id]["name"] == name and people[id]["family_member"] == "kid":
             is_exists = True
     assert is_exists is True
+

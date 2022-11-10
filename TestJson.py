@@ -87,5 +87,3 @@ def test_family_member_exists_in_person():
                 v.assert_family_kid_in_people(surname=surname, name=kid, people=people_dict)
 
 people_dict, families_dict = read_json('Task.json')
-
-
