@@ -9,13 +9,13 @@ def read_json(json_data):
         data_file = json.load(json_file)
         people_dict = data_file['people'][0]
         families_dict = data_file['families'][0]
-        print(data_file)
+        # print(data_file)
         return people_dict, families_dict
 
 
 def test_valid_person_id():
     for id in people_dict:
-        print(id)
+        # print(id)
         v.assert_string(id)
         v.assert_people_id(id)
 
