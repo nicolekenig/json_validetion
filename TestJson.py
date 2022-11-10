@@ -1,5 +1,3 @@
-import pytest as pytest
-from jsonschema import validate
 import json
 import validetion as v
 
@@ -88,16 +86,6 @@ def test_family_member_exists_in_person():
             for kid in kids:
                 v.assert_family_kid_in_people(surname=surname, name=kid, people=people_dict)
 
-# try:
-#     # Opening JSON file
-#     file = open(json_data)
-#     # returns JSON object as a dictionary
-#     data_as_dictionary = json.load(file)
-#     data_as_json = json.dumps(data_as_dictionary, indent=4)
-#     print(jmespath.search("people[*]", data_as_json))
-#     validate(instance=data_as_json, schema=Schema.people)
-# except ValueError as err:
-#     return False
-# return True
-
 people_dict, families_dict = read_json('Task.json')
+
+

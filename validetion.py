@@ -28,7 +28,7 @@ def assert_people_id(id):
 def assert_family_id(id):
     id_as_list = list(id)
     flag = False
-    if id_as_list[0] is '9' and id_as_list[1] is '9' and id_as_list[2] is '9' and id_as_list[3] is '-' and len(
+    if id_as_list[0] == '9' and id_as_list[1] == '9' and id_as_list[2] == '9' and id_as_list[3] == '-' and len(
             id_as_list[4:]) is 4:
         flag = True
     assert flag is True
@@ -48,11 +48,13 @@ def assert_person_is_in_family(person_name, person_surname, person_family_member
 
 def assert_person_appears_once(people_dict):
     # check that the same person (by surename and name) isn't write twice in people in a different id
+    is_appears_once = False
     for person_id_1 in people_dict:
         for person_id_2 in people_dict:
             if person_id_2 is not person_id_1:
-                assert (people_dict[person_id_1]['surname'] is not people_dict[person_id_2]['surname']) and (
-                        people_dict[person_id_1]['name'] is not people_dict[person_id_1]['name'])
+                if people_dict[person_id_1]['surname'] is people_dict[person_id_2]['surname'] and people_dict[person_id_1]['name'] is  people_dict[person_id_1]['name']:
+                    is_appears_once = True
+    assert is_appears_once is False
 
 
 def assert_kid_num_more_then_zero(kids_num):
